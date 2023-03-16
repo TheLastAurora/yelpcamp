@@ -10,6 +10,7 @@ This is a fullstack web project based on original's Colt Steele's YelpCamp.
 - MYSQL
 - Amazon's S3 service
 - Tailwind CSS
+- EJS
 
 ## Status
 
