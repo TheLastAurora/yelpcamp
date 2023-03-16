@@ -16,7 +16,7 @@ This is a fullstack web project based on original's Colt Steele's YelpCamp.
 
 I'm curently working on it, and you can check whats left above.
 
--> Layout customization
+### -> Layout customization
 
 - [ ] About
 - [ ] Profile
@@ -28,12 +28,12 @@ I'm curently working on it, and you can check whats left above.
 - [ ] News
 - [ ] Homepage
 
-## -> Navigation
+### -> Navigation
 
 - [ ] Login -> Campgrounds
 - [ ] Register -> Campgrounds
 
-## -> Models and objects
+### -> Models and objects
 
 - [ ] Review CRUD
 - [ ] Comments CRUD
@@ -41,7 +41,7 @@ I'm curently working on it, and you can check whats left above.
 - [ ] Campgrounds UD
 - [ ] Upload Profile picture
 
-## -> Misc
+### -> Misc
 
 - [ ] Profile picture in homepage when logged 
 - [x] Add logout link to header ✅ 2023-03-15
