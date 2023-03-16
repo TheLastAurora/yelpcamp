@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Campgrounds</title>
+</head>
+
+<body>
+    <header>
+        <% if (locals.user) { %>
+            <%- include('../partials/header-auth') %>
+                <% } else { %>
+                    <%- include('../partials/header') %>
+                        <% } %>
+    </header>
+    <main class="flex">
+        <% for (let i=0; i < campground.length; i++) { %>
+            <div id="carousel-campground" class="flex flex-col m-10 h-72 w-64 rounded-md text-sm">
+                <div id="div-inner" class="flex justify-center items-end">
+                    <div id="div-image" class="h-64 w-64 mb-2.5">
+                        <% for (let i=0; i < content[i].length; i++) { %>
+                            <img src="<%= content[i].link %>" class="object-cover center w-full h-full rounded-md">
+                            <% } %>
+                    </div>
+                    <div id="div-on-hover" class="group absolute pt-16 px-20">
+                        <div id="div-info"
+                            class="invisible ease-in bg-deep-forest-green opacity-60 parent pointer-events-none group-hover:visible transition duration-200 absolute h-64 w-64 -translate-x-1/2 -translate-y-full top-13 rounded-md flex justify-center items-center">
+                            <h2 class="text-ivory text-opacity-100 tracking-widest">
+                                <%= `$${campground[i].price} per night` %>
+                            </h2>
+                            <h2></h2>
+                        </div>
+                    </div>
+                    <div id="div-buttons" class="absolute flex w-60 justify-between top-64">
+                        <button type="button" id="back-button" class="rounded-full p-1 opacity-0 hover:opacity-100"><img
+                                src="/imgs/arrow.png" id="left-arrow" class=" w-4 h-4 rotate-180"></button>
+                        <button type="button" id="forward-button"
+                            class="rounded-full p-1 opacity-0 hover:opacity-100"><img src="/imgs/arrow.png"
+                                id="right-arrow" class="w-4 h-4"></button>
+                    </div>
+                </div>
+                <div id="div-text" class="flex justify-between items-center">
+                    <p id="title" class="overflow-hidden"><b>
+                            <%= campground[i].name %>
+                        </b></p>
+                    <div id="div-rating" class="flex justify-center items-center gap-x-2">
+                        <img src="/imgs/star.png" class="w-2.5 h-2.5">
+                        <p id="rating"><b>
+                                <%= campground[i].rating %>
+                            </b></p>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+    </main>
+
+
+    <footer">
+    <%- include('../partials/footer') %>
+    </footer>
+    <script>
+        let index = 0;
+        const imgs = document.querySelectorAll('#div-image img');
+        const backButton = document.querySelector('#back-button');
+        const forwardButton = document.querySelector('#forward-button');
+        for (let i = 1; i < imgs.length; i++) {
+            imgs[i].style.display = 'none';
+        };
+        forwardButton.addEventListener('click', () => {
+            images[index].style.display = 'none';
+            index++;
+        }
+        );
+        backButton.addEventListener('click', () => {
+            images[index].style.display = 'none';
+            index--;
+        }
+        );
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Policy - YelpCamp</title>
+</head>
+
+<body>
+    <header>
+        <% if (locals.user) { %>
+            <%- include('../partials/header-auth') %>
+                <% } else { %>
+                    <%- include('../partials/header') %>
+                        <% } %>
+    </header>
+    <main>
+        <div>
+            <div>
+                <h1>Our policies</h1>
+                <ol>
+                    <li>Privacy policy - This policy outlines how personal information is collected, used, and shared on
+                        the website.</li>
+                    <li>Terms of use - This policy outlines the rules and regulations that website users must follow
+                        when using the website.</li>
+                    <li>Copyright policy - This policy outlines how copyrighted material is handled on the website and
+                        what actions can be taken if copyright infringement occurs.
+                        Refund policy - This policy outlines the conditions under which refunds are available to
+                        customers who have purchased goods or services from the website.</li>
+                    <li>Payment policy - This policy outlines the payment methods accepted by the website and the
+                        security measures in place to protect user payment information.</li>
+                    <li>Dispute resolution policy - This policy outlines the steps that will be taken to resolve
+                        disputes that may arise between the website and its users</li>
+                    <li>Comment policy - This policy outlines the rules and guidelines for commenting on the website,
+                        including prohibited content and consequences for violating the policy.</li>
+                    <li>User agreement - This policy outlines the agreement between the website and its users, including
+                        the user's rights and responsibilities when using the website.</li>
+                    <li>Community guidelines - This policy outlines the rules and guidelines for participating in any
+                        online community associated with the website, including forums, message boards, and chat rooms.
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <footer">
+            <%- include('../partials/footer') %>
+                </footer>
+</body>
+
+</html>

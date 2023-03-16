@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>About - YelpCamp</title>
+</head>
+
+<body>
+    <header>
+        <% if (locals.user) { %>
+            <%- include('../partials/header-auth') %>
+                <% } else { %>
+                    <%- include('../partials/header') %>
+                        <% } %>
+    </header>
+    <main>
+        <h1>About Us</h1>
+        <p>Welcome to YelpCamp, the ultimate guide to camping and outdoor adventure! Our platform is designed to help
+            outdoor enthusiasts discover and explore the best campsites across the country. Whether you're an
+            experienced camper or new to the scene, we've got you covered.
+
+            Our comprehensive database features detailed descriptions, photos, and reviews of campsites in every state,
+            so you can easily find the perfect spot for your next adventure. From family-friendly sites with plenty of
+            amenities to secluded wilderness areas for the ultimate backcountry experience, YelpCamp has it all.
+
+            But we're more than just a directory of campsites. We're a community of passionate adventurers who love
+            nothing more than sharing our knowledge and experiences with others. That's why we encourage our users to
+            leave reviews, share photos, and connect with each other to plan their next epic camping trip.
+
+            So whether you're planning a weekend getaway or a cross-country road trip, YelpCamp is your go-to resource
+            for all things camping. Join our community today and start exploring the great outdoors like never before!
+        </p>
+    </main>
+    <footer">
+        <%- include('../partials/footer') %>
+            </footer>
+</body>
+
+</html>

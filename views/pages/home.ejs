@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>YelpCamp</title>
+</head>
+
+<body class="overflow-x-hidden">
+    <div class="bg-home bg-cover bg-no-repeat bg-center scale-105 w-full h-full min-h-screen blur-sm"></div>
+    <header class="fixed top-0 w-full">
+        <% if (locals.user) { %>
+            <%- include('../partials/header-auth') %>
+          <% } else { %>
+            <%- include('../partials/header') %>
+          <% } %>
+    </header>
+    <main>
+    </main>
+    <footer class="fixed bottom-0 w-full">
+        <%- include('../partials/footer') %>
+    </footer >
+</body>
+
+</html>

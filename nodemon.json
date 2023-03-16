@@ -1,0 +1,5 @@
+{
+    "events": {
+        "restart": "tailwindcss -i ./views/input.css -o ./public/css/styles.css"
+    }
+}

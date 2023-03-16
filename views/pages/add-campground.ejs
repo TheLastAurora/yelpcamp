@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>New Campground</title>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header-auth') %>
+    </header>
+    <main class="flex justify-center flex-col flex-1 items-center m-10">
+        <div>
+            <div id="div-header" class="flex flex-col justify-center items-center">
+                <h1>Register a new Campground!</h1>
+            </div>
+            <div>
+                <form class="w-full mt-10 flex-col" action="/campgrounds/new" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-700 font-bold mb-2">Title:</label>
+                        <input type="text" name="name" id="name" required
+                            class="w-full px-4 py-2 rounded-lg bg-isabeline text-black font-bold outline-none focus:bg-silver focus:shadow-outline focus:outline-none">
+                    </div>
+                    <div class="mb-6">
+                        <label for="dropzone-file" class="block text-gray-700 font-bold mb-2">Photos and Videos:</label>
+                        <label for="dropzone-file"
+                            class="flex flex-col items-center justify-center w-full px-4 py-2 bg-isabeline rounded-lg before:text-gray-700 font-bold outline-none text-gray-600 focus:bg-silver focus:shadow-outline focus:outline-none hover:bg-silver after:bg-darker-silver cursor-pointer">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <img src="/imgs/upload.png" alt="Upload Icon"
+                                    class="w-10 h-10 mb-3 text-gray-400 upload-icon"
+                                    style="filter: grayscale(100%) brightness(0%) invert(22%) sepia(10%) saturate(858%) hue-rotate(100deg) brightness(93%) contrast(93%) opacity(75%)">
+                                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span>
+                                    or drag and drop</p>
+                                <p class="text-xs text-gray-500">PNG, JPG or MP4</p>
+                            </div>
+                            <input id="dropzone-file" type="file" class="hidden" multiple="multiple" name="campFiles"
+                                accept=".jpg,.png,.mp4,.jpeg" />
+                        </label>
+                    </div>
+                    <div class="mb-6">
+                        <label for="price" class="block text-gray-700 font-bold mb-2">Price:</label>
+                        <input type="number" name="price" id="price" required
+                            class="w-full px-4 py-2 rounded-lg bg-isabeline text-black font-bold outline-none focus:bg-silver focus:shadow-outline focus:outline-none">
+                    </div>
+                    <div class="mb-6">
+                        <label for="rules" class="block text-gray-700 font-bold mb-2">Rules:</label>
+                        <textarea name="rules" id="rules" required
+                            class="w-full px-4 py-2 rounded-lg bg-isabeline text-black font-bold outline-none focus:bg-silver focus:shadow-outline focus:outline-none"></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <label for="description" class="block text-gray-700 font-bold mb-2">Description:</label>
+                        <textarea name="description" id="description" required
+                            class="w-full px-4 py-2 rounded-lg bg-isabeline text-black font-bold outline-none focus:bg-silver focus:shadow-outline focus:outline-none"></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <label for="country" class="block text-gray-700 font-bold mb-2">Country:</label>
+                        <div>
+                            <button id="button-select-country" type="button"
+                                class="w-full px-4 py-2 bg-isabeline rounded-lg before:text-gray-700 font-bold outline-none text-gray-600 focus:bg-silver focus:shadow-outline focus:outline-none hover:bg-silver after:bg-darker-silver">
+                                -- Select the country --
+                            </button>
+                        </div>
+                        <div id="div-list-countries" class="overflow-y-scroll h-96" style="display:none">
+                            <ul id="ul-countries">
+                                <li id="li-country">
+                                    <button id="button-country" type="button"
+                                        class="w-full px-4 py-2 bg-isabeline text-gray-700 font-bold outline-none focus:bg-silver focus:shadow-outline focus:outline-none hover:bg-silver  active:bg-darker-silver">Country</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <input type="hidden" name="country" id="selected-country">
+                    </div>
+                    <div class="mb-6">
+                        <label for="zipCode" class="block text-gray-700 font-bold mb-2">Zip Code:</label>
+                        <input type="text" name="zipCode" id="zipCode" required
+                            class="w-full px-4 py-2 rounded-lg bg-isabeline text-black font-bold outline-none focus:bg-silver focus:shadow-outline focus:outline-none">
+                    </div>
+                    <div class="mb-6">
+                        <label for="city" class="block text-gray-700 font-bold mb-2">City:</label>
+                        <input type="text" name="city" id="city" required
+                            class="w-full px-4 py-2 rounded-lg bg-isabeline text-black font-bold outline-none focus:bg-silver focus:shadow-outline focus:outline-none">
+                    </div>
+                    <div class="mb-6">
+                        <label for="state" class="block text-gray-700 font-bold mb-2">State:</label>
+                        <input type="text" name="state" id="state" required
+                            class="w-full px-4 py-2 rounded-lg bg-isabeline text-black font-bold outline-none focus:bg-silver focus:shadow-outline focus:outline-none">
+                    </div>
+                    <div>
+                        <label for="address" class="block text-gray-700 font-bold mb-2">Complement:</label>
+                        <input type="text" name="address" id="address" required
+                            class="w-full px-4 py-2 rounded-lg bg-isabeline text-black font-bold outline-none focus:bg-silver focus:shadow-outline focus:outline-none">
+                    </div>
+                    <div class="mb-6">
+                        <label for="capacity" class="block text-gray-700 font-bold mb-2">Capacity:</label>
+                        <input type="number" name="capacity" id="capacity" required
+                            class="w-full px-4 py-2 rounded-lg bg-isabeline text-black font-bold outline-none focus:bg-silver focus:shadow-outline focus:outline-none">
+                    </div>
+
+                    <div class="mb-4 flex-col justify-center">
+                        <button type="submit" id="button-submit-campground" onclick="return nextStep()">SUBMIT
+                            CAMPGROUND</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+    </footer>
+    <script src="/js/add-campground.js"></script>
+</body>
+
+</html>

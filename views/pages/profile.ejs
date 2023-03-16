@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>
+        <%= `${locals.user.first_name}'s Profile`%>
+    </title>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header-auth') %>
+    </header>
+    <main>
+        <% if (locals.auth) { %>
+            <div class="flex flex-col justify-center">
+                <div class="">
+                    <div class="flex flex-col items-center mx-auto max-w-md py-8" id="avatar-name-joined">
+                        <img src="<%= user.avatar %>" class="mx-auto w-32 h-32 rounded-full mb-4">
+                        <h1 class="text-2xl font-bold text-center mb-2">
+                            <%= user.first_name %>
+                                <%= user.last_name %>
+                        </h1>
+                        <p>Joined on <%= String(user.createdAt).split(' ')[1];%>, <%= String(user.createdAt).split(' ')[3];%></p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center mb-20">
+                    <b><p class="tracking-wider"><%= avgRating ? avgRating : 0 %>&nbsp;&nbsp;</p></b>
+                    <img src="/imgs/star.png" class="w-4 h-4">
+                </div>             
+                <div class="flex flex-col mb-14" id="about-section">
+                    <h2 class="text-xl mx-16 mb-8"><b>About</b></h2>
+                    <div>
+                    <p class="mx-16 text-justify leading-5">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum enim dolorum nam, excepturi possimus dolorem, ex debitis tempore error laboriosam fuga accusantium voluptatum distinctio facere incidunt quia non sequi animi?
+                        Odio numquam, non, iste voluptatum corporis quas sit tempora et recusandae velit quaerat officiis ea ex totam sapiente quos tempore sequi quisquam! Praesentium, modi. Magni quaerat mollitia maxime quisquam architecto!
+                        Hic quisquam consequatur error molestiae, laboriosam repellat distinctio doloribus similique natus exercitationem id iusto nemo dolore, eius atque ducimus unde asperiores! Doloribus debitis eaque saepe excepturi vero est laboriosam. Sint!
+                        Expedita sit doloribus quos nemo alias laudantium ipsam, temporibus numquam maxime sapiente porro voluptates aperiam doloremque eum. Dolor odio explicabo dolorum ex sapiente, voluptas officiis qui distinctio, consequuntur suscipit est.
+                        Voluptates id eum ipsam ipsum est. A culpa repellat soluta voluptates id totam similique incidunt veritatis obcaecati, pariatur sunt quis aspernatur nam quas exercitationem rem quibusdam quidem nobis eius ipsam.
+                        Officia, consequuntur. Perspiciatis sapiente fuga doloribus deleniti, esse ipsam quos eius, facere, itaque temporibus atque. Pariatur doloremque ipsam beatae, ipsa suscipit maiores exercitationem! Quam et blanditiis nisi impedit officiis veniam.
+                        Ad recusandae illum quis assumenda non enim nobis odit voluptate! Ullam voluptates exercitationem adipisci dolore nulla. Nihil, consequatur mollitia nemo quasi odit animi quam omnis libero qui itaque error harum!
+                        Et, iusto! Corporis officiis debitis nesciunt tenetur culpa? Quaerat quibusdam soluta magnam, tenetur excepturi blanditiis similique adipisci aspernatur obcaecati sint officia dicta molestiae alias, voluptates reprehenderit odit? Quas, at sunt.
+                        Repellat, quibusdam eius nemo pariatur dignissimos excepturi obcaecati illum rem accusantium blanditiis voluptatem sapiente nostrum. Hic nesciunt ratione saepe et repellat tempora, reprehenderit quidem? Beatae quidem soluta illum amet? Quae?
+                        Molestias, odit quisquam placeat quo consectetur maxime laudantium officia illo quis culpa totam dolores labore ex autem. Eligendi, suscipit obcaecati earum, libero, reprehenderit tenetur nam saepe id voluptates minima rerum!
+                    </p>
+                    </div>
+                </div>       
+                <div class="flex" id="campgrounds-section">
+                    <h2 class="text-xl mx-16 mb-8"><b>Most Popular Campgrounds</b></h2>
+                    <div id="campgrounds-carousel">
+
+                    </div>
+                </div>
+                <div class="flex flex-col" id="contact-section">
+                    <h2 class="text-xl mx-16 mb-8"><b>Contact</b></h2>
+                    <div class="mx-16 leading-6">
+                        <p class="mb-2 "><strong>Email: </strong><%= user.email %></p>
+                        <p class="mb-2"><strong>Phone: </strong><%= user.phone %> </p>
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <p>This is a public view of the profile of the user <%= locals.user.first_name %>
+            </p>
+            <% } %>
+        </main>
+    <footer">
+        <%- include('../partials/footer') %>
+    </footer>
+</body>
+
+</html>
